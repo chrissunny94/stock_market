@@ -2,10 +2,10 @@ from datetime import date
 from jugaad_data.nse import bhavcopy_save, bhavcopy_fo_save
 
 # Download bhavcopy
-bhavcopy_save(date(2020,1,1), "/path/to/directory")
+bhavcopy_save(date(2023,9,21), "../DATA")
 
 # Download bhavcopy for futures and options
-bhavcopy_fo_save(date(2020,1,1), "/path/to/directory")
+bhavcopy_fo_save(date(2023,9,20), "../DATA")
 
 # Download stock data to pandas dataframe
 from jugaad_data.nse import stock_df
