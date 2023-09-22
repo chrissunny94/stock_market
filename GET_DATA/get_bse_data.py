@@ -20,6 +20,8 @@ for code in codelist:
     pp.pprint(quote["companyName"])
     pp.pprint(quote["currentValue"])
     pp.pprint(quote["updatedOn"])
+    
+
 his = b.getPeriodTrend('532540','6M')
 q = b.getQuote('532540')
 pp.pprint(q)
