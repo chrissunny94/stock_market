@@ -1,0 +1,4 @@
+juggad_data
+yfinance
+scikit-learn
+pandas
