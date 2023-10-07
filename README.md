@@ -2,10 +2,6 @@
 
 - https://github.com/NayakwadiS/mftool
 - 
-
-
-
-
 - GET_DATA , scripts for getting realtime data
 - VISUALIZATION , gui for plotting the data
 - BACK_TESTING
@@ -23,4 +19,11 @@
 
   - entry
   - stop_loss
--
+- 
+
+
+
+
+```
+git pull
+```
