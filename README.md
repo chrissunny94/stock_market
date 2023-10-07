@@ -22,7 +22,20 @@
 - 
 
 
+### GIT COMMANDS
 
+
+To commit your changes
+
+```
+git add .
+git commit -m "change you are making"
+git push
+
+```
+
+
+To pull the latest changes from the repo
 
 ```
 git pull
