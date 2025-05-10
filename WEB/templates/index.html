@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Similarity Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin: 20px 0;
+        }
+        button {
+            padding: 5px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .plot-container {
+            margin-top: 30px;
+        }
+        .plot-container img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Similarity Finder</h1>
+    <p>Comparing stocks to: <strong>{{ reference_ticker }}</strong></p>
+    
+    <!-- Dropdown for selecting a stock -->
+    <form method="POST" action="/">
+        <label for="stock">Select a Stock to Compare:</label>
+        <select name="stock" id="stock">
+            <option value="">--Select a Stock--</option>
+            {% for ticker in compare_tickers %}
+                <option value="{{ ticker }}" {% if ticker == selected_stock %} selected {% endif %}>{{ ticker }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if similarities %}
+        <h2>Stock Similarity Results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Ticker</th>
+                    <th>Similarity Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticker, score in similarities %}
+                    <tr>
+                        <td>{{ ticker }}</td>
+                        <td>{{ "%.4f"|format(score) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Select a stock from the dropdown and submit to see the similarity results.</p>
+    {% endif %}
+
+    {% if plot_url %}
+    <div class="plot-container">
+        <h2>Normalized Price Chart for {{ selected_stock }}</h2>
+        <img src="{{ plot_url }}" alt="Stock Price Chart">
+    </div>
+    {% endif %}
+</body>
+</html>
