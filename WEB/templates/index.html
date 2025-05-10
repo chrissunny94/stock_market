@@ -89,5 +89,14 @@
         <img src="{{ plot_url }}" alt="Stock Price Chart">
     </div>
     {% endif %}
+
+
+    <!-- Add this where you want the plot to appear -->
+{% if comparison_plot_url %}
+<div style="margin-top: 30px;">
+    <h2>Price Comparison: {{ reference_ticker }} vs {{ selected_stock }}</h2>
+    <img src="{{ comparison_plot_url }}" alt="Price Comparison" style="max-width: 100%;">
+</div>
+{% endif %}
 </body>
 </html>
