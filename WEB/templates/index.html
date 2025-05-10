@@ -98,5 +98,40 @@
     <img src="{{ comparison_plot_url }}" alt="Price Comparison" style="max-width: 100%;">
 </div>
 {% endif %}
+
+
+
+
+
+<!-- Add this to your template -->
+{% if comparison_plot_url %}
+<div class="chart-container">
+    <h2>Comparative Analysis</h2>
+    <img src="{{ comparison_plot_url }}" alt="Comparative Analysis">
+    
+    <div class="candle-grid">
+        <div>
+            <h3>{{ reference_ticker }} Candlestick</h3>
+            <img src="{{ ref_candle_url }}" alt="{{ reference_ticker }} Candlestick">
+        </div>
+        <div>
+            <h3>{{ selected_stock }} Candlestick</h3>
+            <img src="{{ cmp_candle_url }}" alt="{{ selected_stock }} Candlestick">
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<style>
+.candle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+.chart-container {
+    margin: 40px 0;
+}
+</style>
 </body>
 </html>
